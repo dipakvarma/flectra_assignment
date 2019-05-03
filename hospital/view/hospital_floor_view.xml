@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="hospital_floor_form_view" model="ir.ui.view">
+            <field name="name">hospital floor form view</field>
+            <field name="model">hospital.floor</field>
+            <field name="arch" type="xml">
+                <form string="Hospital floor">
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="room_type"/>
+                         <field name="total_rooms"/>
+                        <field name="info_line">
+                            <tree string="infor">
+                                  <field name="room_number"/>
+                            </tree>
+                        </field>
+                        <field name="facility_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hospital_floor_search_view"  model="ir.ui.view">
+            <field name="name">hospital floor search view</field>
+            <field name="model">hospital.floor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="hospital_floor_list_view" model="ir.ui.view">
+            <field name="name">hospital floor list view</field>
+            <field name="model">hospital.floor</field>
+            <field name="arch" type="xml">
+                <tree string="Hospital floor">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="room_type"/>
+                        <field name="total_rooms"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_hospital_floor" model="ir.actions.act_window">
+            <field name="name">floor</field>
+            <field name="res_model">hospital.floor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search</field>
+
+        </record>
+
+
+               <menuitem id="hos" name="floor" action="action_hospital_floor"
+                  parent="hospital_info"/>
+
+
+    </data>
+</flectra>

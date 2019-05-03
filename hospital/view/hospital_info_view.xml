@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="hospital_management_form_view" model="ir.ui.view">
+         <field name="name">hospital info form view</field>
+            <field name="model">hospital.info</field>
+            <field name="arch" type="xml">
+                <form string="Hospital information">
+                    <group>
+                        <field name="room_number"/>
+                        <field name="room_type"/>
+                        <field name="floor_id"/>
+                        <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="operation_theater"/>
+                        <field name="pharmacy"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hospital_management_search_view"  model="ir.ui.view">
+            <field name="name">hospital management search view</field>
+            <field name="model">hospital.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="room_number"/>
+                    <field name="room_type"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="hospital_management_list_view" model="ir.ui.view">
+            <field name="name">hospital info list view</field>
+            <field name="model">hospital.info</field>
+            <field name="arch" type="xml">
+                <tree string="Hospital Information">
+                        <field name="room_number"/>
+                        <field name="room_type"/>
+                        <field name="description"/>
+                        <field name="operation_theater"/>
+                        <field name="pharmacy"/>
+                </tree>
+            </field>
+        </record>
+
+
+         <record id="hospital_management_calendar_view" model="ir.ui.view" >
+            <field name="name">hospital info calendar view</field>
+            <field name="model">hospital.info</field>
+            <field name="arch" type="xml">
+                <calendar string="hosp info" date_start="start_date">
+                    <field name="description"/>
+                </calendar>
+            </field>
+        </record>
+
+
+
+        <record id="action_hospital_information" model="ir.actions.act_window">
+            <field name="name">info</field>
+            <field name="res_model">hospital.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search,calendar</field>
+
+        </record>
+
+
+        <menuitem id="hospital_management" name="Hospital management"/>
+        <menuitem id="hospital_info" name="info" parent="hospital_management"/>
+        <menuitem id="hospital" name="Room" action="action_hospital_information"
+                  parent="hospital_info"/>
+
+
+    </data>
+</flectra>

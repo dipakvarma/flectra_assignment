@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="hospital_facility_form_view" model="ir.ui.view">
+            <field name="name">hospital facility form view</field>
+            <field name="model">hospital.facility</field>
+            <field name="arch" type="xml">
+                <form string="Hospital facility">
+                    <group>
+                        <field name="name"/>
+                        <field name="ID"/>
+                        <field name="floor_ids"/>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hospital_facility_search_view"  model="ir.ui.view">
+            <field name="name">hospital facility search view</field>
+            <field name="model">hospital.facility</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="hospital_facility_list_view" model="ir.ui.view">
+            <field name="name">hospital facility list view</field>
+            <field name="model">hospital.facility</field>
+            <field name="arch" type="xml">
+                <tree string="Hospital facility">
+                        <field name="name"/>
+                        <field name="ID"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_hospital_facility" model="ir.actions.act_window">
+            <field name="name">facility</field>
+            <field name="res_model">hospital.facility</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search</field>
+
+        </record>
+
+
+               <menuitem id="host" name="facility" action="action_hospital_facility"
+                  parent="hospital_info"/>
+
+
+    </data>
+</flectra>
